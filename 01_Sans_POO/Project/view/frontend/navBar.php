@@ -11,7 +11,7 @@
                 </li>
 
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="view/frontend/vueConnexion.php" method="post">
+            <form class="form-inline my-2 my-lg-0" action="index.php?action=connectionView" method="post">
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Connexion</button>
             </form>
         </div>

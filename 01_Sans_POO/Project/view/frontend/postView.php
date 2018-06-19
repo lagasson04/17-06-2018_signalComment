@@ -24,7 +24,7 @@ while ($comment = $comments->fetch())
 	<div class="comment">
 		<p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?><a href="index.php?action=updateComment&amp;idc=<?= $comment['id'] ?>&amp;idp=<?= $comment['post_id'] ?>"> (modifier)</a></p>
 		<p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-		<p><a href="index.php?action=reportCom&amp;idc=<?=$comment['id'] ?>"> Signaler !!</a> <?= $comment['report'] ?></p> 
+		<p><a href="index.php?action=reportCom&amp;idc=<?=$comment['id'] ?>&amp;idp=<?=$comment['post_id'] ?>"> Signaler !!</a> <?= $comment['report'] ?></p> 
 		<p><?php 
 		if (isset($comment['report']) && $comment['report'] == 1) {
 			echo  "<strong>Commentaire signalé !!!</strong>";

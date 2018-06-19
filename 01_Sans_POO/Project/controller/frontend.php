@@ -56,9 +56,13 @@ function validComment($newComment, $idc, $idp)
 	// echo $idp;
 }
 
-function reportCom($idc)
+function reportCom($idc, $idp)
 {
 	$affectedLines = reportComment($idc);
-	header('Location: index.php');
+	header('Location: index.php?action=post&id=' . $idp);
 
+}
+
+function showConnectionPage(){
+	require('view/frontend/vueConnexion.php');
 }

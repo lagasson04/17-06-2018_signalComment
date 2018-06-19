@@ -55,7 +55,7 @@ try { // On essaie de faire des choses
 // Signalement commentaire------>
         elseif ($_GET['action'] == 'reportCom'){
             if (isset($_GET['idc'])) {
-                reportCom($_GET['idc']);
+                reportCom($_GET['idc'], $_GET['idp']);
 
             }
             else {
@@ -64,6 +64,13 @@ try { // On essaie de faire des choses
             }
         }
 //--------->FIN
+
+        elseif ($_GET['action'] == 'connectionView'){
+            showConnectionPage();
+
+        }
+         
+//-------> Ajout de l'action pour tester la connexion
     }
     else {
         listPosts();
