@@ -81,12 +81,18 @@ try { // On essaie de faire des choses
             logOut();
 
         }
-         
+
 //-------> Ajout de l'action pour tester la connexion
         elseif ($_GET['action'] == 'connectTest'){
             if (isset($_POST['login']) && isset($_POST['pass'])) {
                 getConnection($_POST['login'], $_POST['pass']);
             }
+        }
+
+        elseif ($_GET['action'] == 'testAdminView'){
+            // if (isset($_POST['login']) && isset($_POST['pass'])) {
+                connectionTest($_POST['login'], $_POST['pass']);
+            // }
         }
     }
     else {

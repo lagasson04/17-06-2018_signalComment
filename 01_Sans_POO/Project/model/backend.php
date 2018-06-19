@@ -28,7 +28,7 @@ function getConnection($login, $pass){
 			$_SESSION['login'] = $login;
 			echo 'Vous êtes connecté !';
 			?>
-			<p><META HTTP-EQUIV="Refresh" CONTENT="2; URL=index.php?action=adminView">Vous allez être redirigé dans quelques secondes....</p>
+			<p><META HTTP-EQUIV="Refresh" CONTENT="2; URL=index.php?action=testAdminView">Vous allez être redirigé dans quelques secondes....</p>
 			<?php 
 		}
 		else {

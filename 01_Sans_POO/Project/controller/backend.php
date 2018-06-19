@@ -6,7 +6,7 @@ function connectionTest($login, $pass){
 		die('Impossible de vous connecter !');
 	}
 	else {
-		header('Location: adminViewPage.php');
+		header('Location: index.php?action=adminView');
 	}
 
 }
