@@ -1,5 +1,7 @@
 <?php
+
 require('controller/frontend.php');
+require('controller/backend.php');
 
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
@@ -68,9 +70,24 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'connectionView'){
             showConnectionPage();
 
+        }        
+
+        elseif ($_GET['action'] == 'adminView'){
+            showAdminPage();
+
+        }
+
+        elseif ($_GET['action'] == 'out'){
+            logOut();
+
         }
          
 //-------> Ajout de l'action pour tester la connexion
+        elseif ($_GET['action'] == 'connectionTest'){
+            if (isset($_POST['login']) && isset($_POST['pass'])) {
+                getConnection($_POST['login'], $_POST['pass']);
+            }
+        }
     }
     else {
         listPosts();
