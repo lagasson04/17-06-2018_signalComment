@@ -4,7 +4,7 @@
 <header><h1>Connexion</h1></header>
 	<div class="container">
 		<div class="row">
-			<form class="col-lg-offset-3 col-lg-6" action="index.php?action=connectionTest" method="post">
+			<form class="col-lg-offset-3 col-lg-6" action="index.php?action=connectTest" method="post">
 				<!-- on envoi vers l'action de test de la connexion du routeur -->
 				<div class="form-group">
 					<label for="pseudo">Pseudo*</label>

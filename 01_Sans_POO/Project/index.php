@@ -83,7 +83,7 @@ try { // On essaie de faire des choses
         }
          
 //-------> Ajout de l'action pour tester la connexion
-        elseif ($_GET['action'] == 'connectionTest'){
+        elseif ($_GET['action'] == 'connectTest'){
             if (isset($_POST['login']) && isset($_POST['pass'])) {
                 getConnection($_POST['login'], $_POST['pass']);
             }
