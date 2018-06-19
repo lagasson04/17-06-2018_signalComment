@@ -38,8 +38,8 @@ while ($comment = $comments->fetch())
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
-
-<h2>Commentaires</h2>
+<div class="container">
+<h2>Ajouter des commentaires</h2>
 <div class="comment">
 	<form action="index.php?action=addComment&amp;id=<?=$post['id'] ?>" method="post">
 		<div>
@@ -54,4 +54,5 @@ while ($comment = $comments->fetch())
 			<input type="submit" />
 		</div>
 	</form>
+</div>
 </div>
