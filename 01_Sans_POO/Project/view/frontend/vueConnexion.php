@@ -12,7 +12,7 @@
 				</div>
 				<div class="form-group">
 					<label for="pass">Mot de passe*</label>
-					<input type="password" class="form-control" name="pass" id="pass" required="required" placeholder="Mot de passe" value="<?php  if (isset($_SESSION['pass_hache'])) {echo $_SESSION['pass_hache'];} ?>">
+					<input type="password" class="form-control" name="pass" id="pass" required="required" placeholder="Mot de passe" value="<?php  if (isset($_SESSION['pass'])) {echo $_SESSION['pass'];} ?>">
 				</div>
 				<button type="submit" class="pull-right btn btn-danger" name="envoyer"><span class="glyphicon glyphicon-ok-sign"> </span> Envoyer</button>
 			</form>

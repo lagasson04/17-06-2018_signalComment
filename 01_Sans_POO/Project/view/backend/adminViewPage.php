@@ -9,8 +9,6 @@ echo "ok admin";
 echo "<br />";
 echo $_SESSION['id'];
 echo "<br />";
-echo $_POST['pass'];
-echo "<br />";
 echo $_SESSION['pass'];
 
 ?>

@@ -26,6 +26,7 @@ function getConnection($login, $pass){
 			session_start();
 			$_SESSION['id'] = $result['id'];
 			$_SESSION['login'] = $login;
+			$_SESSION['pass'] = $_POST['pass'];
 			echo 'Vous êtes connecté !';
 			?>
 			<p><META HTTP-EQUIV="Refresh" CONTENT="2; URL=index.php?action=testAdminView">Vous allez être redirigé dans quelques secondes....</p>
