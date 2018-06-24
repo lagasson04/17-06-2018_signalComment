@@ -4,6 +4,10 @@
 <header><h1>Connexion</h1></header>
 	<div class="container">
 		<div class="row">
+			<?php if (isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+				header('Location: index.php?action=adminView'); }
+				else {
+					?>
 			<form class="col-lg-offset-3 col-lg-6" action="index.php?action=connectTest" method="post">
 				<!-- on envoi vers l'action de test de la connexion du routeur -->
 				<div class="form-group">
@@ -16,6 +20,9 @@
 				</div>
 				<button type="submit" class="pull-right btn btn-danger" name="envoyer"><span class="glyphicon glyphicon-ok-sign"> </span> Envoyer</button>
 			</form>
+		<?php
+		}
+		?>
 		</div>
 	</div>			
 <?php $content = ob_get_clean(); ?>

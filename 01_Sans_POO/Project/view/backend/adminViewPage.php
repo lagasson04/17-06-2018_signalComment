@@ -1,19 +1,21 @@
-<?php 
-session_start();
-if (isset($_SESSION['id']) AND isset($_SESSION['login']))
-{
-    echo 'Bonjour ' . $_SESSION['login'];
-}
-echo "<br />";
-echo "ok admin"; 
-echo "<br />";
-echo $_SESSION['id'];
-echo "<br />";
-echo $_SESSION['pass'];
+<?php $title = 'Admin'; ?>
+<?php ob_start(); ?>
+<?php session_start(); 
+// if (isset($_SESSION['id']) AND isset($_SESSION['login']))
+// {
+// 	echo 'Bonjour ' . $_SESSION['login'];
+// }
+// echo "<br />";
+// echo "ok admin"; 
+// echo "<br />";
+// echo $_SESSION['id'];
+// echo "<br />";
+// echo $_SESSION['pass'];
+// echo "<br />";
+// echo $_SESSION['pass_hache'];
 
 ?>
-<p><a href="index.php">Accueil</a></p>
 
-<p><form action="index.php?action=out" method="POST">
-	<input type="submit" name="deconnexion" value="Deconnexion">
-</form></p>
+<?php $content = ob_get_clean(); ?>
+
+<?php require('template.php'); ?>

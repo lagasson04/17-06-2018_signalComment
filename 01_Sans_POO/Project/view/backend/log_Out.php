@@ -6,8 +6,6 @@ $_SESSION = array();
 session_destroy();
 
 // Suppression des cookies de connexion automatique
-setcookie('login', '');
-setcookie('pass_hache', '');
 $title = "Deconnexion"; ?>
 <?php ob_start(); ?>
 <?= "Vous vous êtes bien déconnecté(e)!!!"; ?>
