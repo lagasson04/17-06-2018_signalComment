@@ -74,11 +74,15 @@ try { // On essaie de faire des choses
 
         elseif ($_GET['action'] == 'adminView'){
             showAdminPage();
-
         }
 
         elseif ($_GET['action'] == 'out'){
             logOut();
+
+        }
+
+        elseif ($_GET['action'] == 'addPost'){
+            adPostView();
 
         }
 
@@ -87,11 +91,16 @@ try { // On essaie de faire des choses
             if (isset($_POST['login']) && isset($_POST['pass'])) {
                 getConnection($_POST['login'], $_POST['pass']);
             }
+        } 
+        elseif ($_GET['action'] == 'adPost'){
+            if (isset($_POST['title']) && isset($_POST['content'])) {
+                adPost($_POST['title'], $_POST['content']);
+            }
         }
 
         elseif ($_GET['action'] == 'testAdminView'){
             // if (isset($_POST['login']) && isset($_POST['pass'])) {
-                connectionTest($_POST['login'], $_POST['pass']);
+            connectionTest($_POST['login'], $_POST['pass']);
             // }
         }
     }

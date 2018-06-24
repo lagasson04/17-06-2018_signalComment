@@ -44,3 +44,10 @@ function getConnection($login, $pass){
 		}
 	}
 }
+function postPost($title, $content)
+{
+    $db = dbConnect();
+    $adPost = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES (?, ?, NOW())');
+    $affectedLines = $adPost->execute(array($title, $content));
+    return $affectedLines;
+}
