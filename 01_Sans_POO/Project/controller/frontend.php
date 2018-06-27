@@ -20,13 +20,14 @@ function post()
 
 function addComment($postId, $author, $comment)
 {
-	$affectedLines = postComment($postId, $author, $comment);
-	if ($affectedLines === false) {
-		die('Impossible d\'ajouter le commentaire !');
-	}
-	else {
-		header('Location: index.php?action=post&id=' . $postId);
-	}
+    $affectedLines = postComment($postId, $author, $comment);
+
+    if ($affectedLines === false) {
+        throw new Exception('Impossible d\'ajouter le commentaire ça ne marche plus!');
+    }
+    else {
+        header('Location: index.php?action=post&id=' . $postId);
+    }
 }
 
 function updateComment($idc, $idp)

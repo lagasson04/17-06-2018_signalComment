@@ -13,7 +13,9 @@
 		<td></td>
 		<td></td>
 		<td><form action="index.php?action=addPost" method="post">
-			<input type="submit" name="AddChapter" value="Ajouter un chapitre">
+			<input class="btn btn-success" type="submit" value="Ajouter">
+			<a class="btn btn-primary" href="#" role="button">Modifier</a>
+			<a class="btn btn-danger" href="#" role="button">Supprimer</a>
 		</form></td>
 	</tr>
 </table>
