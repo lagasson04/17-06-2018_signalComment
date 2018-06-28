@@ -86,6 +86,11 @@ try { // On essaie de faire des choses
 
         }
 
+        elseif ($_GET['action'] == 'modifPost'){
+            modifPostView();
+        }
+
+
 //-------> Ajout de l'action pour tester la connexion
         elseif ($_GET['action'] == 'connectTest'){
             if (isset($_POST['login']) && isset($_POST['pass'])) {
@@ -102,6 +107,18 @@ try { // On essaie de faire des choses
             // if (isset($_POST['login']) && isset($_POST['pass'])) {
             connectionTest($_POST['login'], $_POST['pass']);
             // }
+        }
+
+        elseif ($_GET['action'] == 'modifiedPost') {
+            if (isset($_POST['title']) && isset($_POST['content'])) {
+                modifiedPost($_POST['title'], $_POST['content'], $_GET['idp']);
+                
+            }
+        }
+        elseif ($_GET['action'] == 'deletedPost') {
+            if (isset($_GET['idp'])) {
+                deletedPost($idp);
+            }
         }
     }
     else {

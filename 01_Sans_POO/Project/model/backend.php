@@ -51,3 +51,28 @@ function postPost($title, $content)
     $affectedLines = $adPost->execute(array($title, $content));
     return $affectedLines;
 }
+
+function shortenText($text, $size) {
+    if (strlen($text) > $size)
+        return substr($text, 0, $size).' ...';
+    return $text;
+}
+
+function modifyPost($title, $content, $idp)
+{
+    $db = dbConnect();
+    $req = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :idp');
+    $req->execute(array(
+        'title' => $title,
+        'content' => $content,
+        'id' => $idp
+    )); 
+}
+
+function deletePost($idp) {
+	$db = dbConnect();
+	$req = $db->prepare('DELETE FROM posts WHERE id = ?');
+	$idp = $req->execute(array($id));
+	return $idp;
+}
+
