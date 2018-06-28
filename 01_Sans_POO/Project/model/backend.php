@@ -61,10 +61,10 @@ function shortenText($text, $size) {
 function modifyPost($title, $content, $idp)
 {
     $db = dbConnect();
-    $req = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :idp');
+    $req = $db->prepare('UPDATE posts SET title = :newTitle, content = :newContent WHERE id = :idp');
     $req->execute(array(
-        'title' => $title,
-        'content' => $content,
+        'newTitle' => $newTitle,
+        'newContent' => $newContent,
         'id' => $idp
     )); 
 }
