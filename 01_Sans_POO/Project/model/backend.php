@@ -65,7 +65,7 @@ function modifyPost($title, $content, $idp)
     $req->execute(array(
         'newTitle' => $newTitle,
         'newContent' => $newContent,
-        'id' => $idp
+        'idp' => $idp
     )); 
 }
 
