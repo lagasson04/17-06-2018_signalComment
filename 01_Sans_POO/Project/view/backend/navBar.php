@@ -24,7 +24,7 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a href="index.php?action=adminView" title="Page Administration">Page Administration</a></li>
-                    <li><a href="index.php?action=out" title="Deconnexion">Deconnexion</a></li>
+                    <li><a class="deconnexion" href="index.php?action=out" title="Deconnexion">Deconnexion</a></li>
                 </ul>
             </div>
         </div>
