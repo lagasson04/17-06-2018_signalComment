@@ -22,7 +22,7 @@ $text = nl2br(htmlspecialchars($data['content']));
 		</tr>
 		<tr>
 			<td><?= htmlspecialchars($data['title']) ?></td>
-			<td><?= shortenText($text, 20) ?><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire plus</a></td>
+			<td><?= shortenText($text, 20) ?><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"> ...Lire plus</a></td>
 			<td>le <?= $data['creation_date_fr'] ?></td>
 			<td class="row"><form action="index.php?action=modifPost&amp;postId=<?= $data['id'] ?>" method="post">
 				<input class="btn btn-primary" type="submit" value="Modifier">
