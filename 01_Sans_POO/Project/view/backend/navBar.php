@@ -17,12 +17,16 @@
                     } ?> <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="index.php?action=out" method="post">
-                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Deconnexion</button>
-            </form>
-            <form class="form-inline my-2 my-lg-0" action="index.php?action=adminView" method="post">
-                <button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">Vous êtes connecté</button>
-            </form>
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Vous êtes connecté
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="index.php?action=adminView" title="Page Administration">Page Administration</a></li>
+                    <li><a href="index.php?action=out" title="Deconnexion">Deconnexion</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     <!-- /.container -->
