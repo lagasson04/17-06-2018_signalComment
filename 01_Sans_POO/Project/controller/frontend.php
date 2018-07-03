@@ -68,3 +68,7 @@ function reportCom($idc, $idp)
 function showConnectionPage(){
 	require('view/frontend/vueConnexion.php');
 }
+
+function errorConnectionView() {
+	require('view/frontend/errorConnectionView.php');
+}

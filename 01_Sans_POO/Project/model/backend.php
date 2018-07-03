@@ -11,38 +11,9 @@ function getConnection($login, $pass){
 		'login' => $login));
 	$result = $req->fetch();
 	$isPasswordCorrect = password_verify($_POST['pass'], $result['pass']);
-
-	if (!$result)
-	{
-		?>
-
-		<p>Mauvais identifiant ou mot de passe !</p>
-		<a href="index.php?action=connectionView">Retour</a>
-		<?php 
-	}
-	else
-	{
-		if ($isPasswordCorrect) {
-			session_start();
-			$_SESSION['id'] = $result['id'];
-			$_SESSION['login'] = $login;
-			$pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-			$_SESSION['pass_hache'] = $pass_hache;
-			$_SESSION['pass'] = $_POST['pass'];
-			echo 'Vous êtes connecté !';
-			?>
-			<p><META HTTP-EQUIV="Refresh" CONTENT="2; URL=index.php?action=testAdminView">Vous allez être redirigé dans quelques secondes....</p>
-			<?php 
-		}
-		else {
-			?>
-			<p>Mauvais identifiant ou mot de passe !!</p>
-			<a href="index.php?action=connectionView">Retour</a>
-			<?php 
-
-
-		}
-	}
+	
+	return $isPasswordCorrect;
+	
 }
 function postPost($title, $content)
 {

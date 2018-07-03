@@ -94,7 +94,14 @@ try { // On essaie de faire des choses
 //-------> Ajout de l'action pour tester la connexion
         elseif ($_GET['action'] == 'connectTest'){
             if (isset($_POST['login']) && isset($_POST['pass'])) {
-                getConnection($_POST['login'], $_POST['pass']);
+                $trueConnect = getConnection($_POST['login'], $_POST['pass']);
+                //echo $trueConnect;
+                if ($trueConnect === true) {
+                    connectionTest($_POST['login'], $_POST['pass']);
+                }
+                else {
+                    errorConnectionView();
+                }
             }
         } 
         elseif ($_GET['action'] == 'adPost'){
@@ -103,11 +110,11 @@ try { // On essaie de faire des choses
             }
         }
 
-        elseif ($_GET['action'] == 'testAdminView'){
+        //elseif ($_GET['action'] == 'testAdminView'){
             // if (isset($_POST['login']) && isset($_POST['pass'])) {
-            connectionTest($_POST['login'], $_POST['pass']);
+            //connectionTest($_POST['login'], $_POST['pass']);
             // }
-        }
+        //}
 
         elseif ($_GET['action'] == 'modifiedPost') {
             if (isset($_POST['title']) && isset($_POST['content'])) {

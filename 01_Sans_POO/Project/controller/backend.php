@@ -1,13 +1,18 @@
 <?php
 function connectionTest($login, $pass) {
 	//si la connexion marche, on envoi vers l'espace d'administration. Sinon on renvoi vers la vue de connexion
-
-	$affectedLines = getConnection($login, $pass);
-	if ($affectedLines === false) {
+	$trueConnection = getConnection($_POST['login'], $_POST['pass']); 
+	if ($trueConnection === false) {
 		die('Impossible de vous connecter !');
 	}
-	else {
-		header('Location: index.php?action=adminView');
+	else  {
+		session_start();
+		//$_SESSION['id'] = $result['id'];
+		$_SESSION['login'] = $login;
+		$pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+		$_SESSION['pass_hache'] = $pass_hache;
+		$_SESSION['pass'] = $_POST['pass'];
+		require('view/backend/trueConnectionView.php'); 
 	}
 
 }
