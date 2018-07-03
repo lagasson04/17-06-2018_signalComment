@@ -11,7 +11,7 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#"><?php 
-                    if (isset($_SESSION['id']) AND isset($_SESSION['login']))
+                    if (isset($_SESSION['login']))
                     {
                         echo 'Bonjour ' . $_SESSION['login'];
                     } ?> <span class="sr-only">(current)</span></a>
