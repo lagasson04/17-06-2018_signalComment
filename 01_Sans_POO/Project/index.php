@@ -87,7 +87,7 @@ try { // On essaie de faire des choses
         }
 
         elseif ($_GET['action'] == 'modifPost'){
-            modifPostView();
+            modifPostView($_GET['postId']);
         }
 
 
@@ -111,13 +111,14 @@ try { // On essaie de faire des choses
 
         elseif ($_GET['action'] == 'modifiedPost') {
             if (isset($_POST['title']) && isset($_POST['content'])) {
-                modifiedPost($_POST['title'], $_POST['content'], $_GET['idp']);
+                modifiedPost($_POST['title'], $_POST['content'], $_GET['postId']);
                 
             }
         }
         elseif ($_GET['action'] == 'deletedPost') {
             if (isset($_GET['idp'])) {
-                deletedPost($idp);
+                deletedPost($_GET['idp']);
+                //echo $_GET['idp'];
             }
         }
     }

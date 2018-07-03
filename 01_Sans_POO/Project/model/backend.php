@@ -58,21 +58,17 @@ function shortenText($text, $size) {
     return $text;
 }
 
-function modifyPost($title, $content, $idp)
+function modifyPost($title, $content, $postId)
 {
     $db = dbConnect();
-    $req = $db->prepare('UPDATE posts SET title = :newTitle, content = :newContent WHERE id = :idp');
-    $req->execute(array(
-        'newTitle' => $newTitle,
-        'newContent' => $newContent,
-        'idp' => $idp
-    )); 
+    $req = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
+    $req->execute(array($title, $content, $postId)); 
 }
 
 function deletePost($idp) {
 	$db = dbConnect();
 	$req = $db->prepare('DELETE FROM posts WHERE id = ?');
-	$idp = $req->execute(array($id));
-	return $idp;
+	$isDeleted = $req->execute(array($idp));
+	return $isDeleted;
 }
 

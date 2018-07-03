@@ -1,10 +1,9 @@
 <?php session_start(); ?>
 <?php $title = 'ModifyPost'; ?>
 <?php ob_start(); ?>
-<?php $post = getPost($_GET['idp']); ?>
 <h2>Modifier un chapitre</h2>
 <div class="modify">
-	<form action="index.php?action=modifiedPost" method="post">
+	<form action="index.php?action=modifiedPost&amp;postId=<?= $_GET['postId'] ?>" method="post">
 		<div>
 			<label for="title">Titre</label><br />
 			<input type="text" id="title" name="title" value="<?= htmlspecialchars($post['title']) ?>" />

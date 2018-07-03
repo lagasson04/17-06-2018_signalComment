@@ -13,6 +13,7 @@ function connectionTest($login, $pass) {
 }
 
 function showAdminPage() {
+	$posts = getPosts();
 	require('view/backend/adminViewPage.php');
 }
 
@@ -35,8 +36,8 @@ function adPost($title, $content) {
 	}
 }
 
-function modifPostView() {
-
+function modifPostView($idp) {
+	$post = getPost($idp);
 	require('view/backend/modifyPostView.php');
 }
 
@@ -51,9 +52,9 @@ function modifiedPost($title, $content, $idp) {
 	}
 }
 
-function deletedPost($idp) {
+function deletedPost($postId) {
 
-	$del = deletePost($idp);
+	$del = deletePost($postId);
 	if ($del === false) {
 		die('Impossible de supprimer le chapitre !');
 	}
