@@ -72,3 +72,7 @@ function showConnectionPage(){
 function errorConnectionView() {
 	require('view/frontend/errorConnectionView.php');
 }
+
+function zozor() {
+	require('view/frontend/zozorView.php');
+}

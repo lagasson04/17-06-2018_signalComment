@@ -73,7 +73,13 @@ try { // On essaie de faire des choses
         }        
 
         elseif ($_GET['action'] == 'adminView'){
-            showAdminPage();
+            if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+                showAdminPage();
+            }
+            else {
+                session_destroy();
+                zozor();
+            }
         }
 
         elseif ($_GET['action'] == 'out'){
@@ -82,33 +88,39 @@ try { // On essaie de faire des choses
         }
 
         elseif ($_GET['action'] == 'addPost'){
+           if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
             adPostView();
-
+        }
+        else {
+            session_destroy();
+            zozor();
         }
 
-        elseif ($_GET['action'] == 'modifPost'){
-            modifPostView($_GET['postId']);
-        }
+    }
+
+    elseif ($_GET['action'] == 'modifPost'){
+        modifPostView($_GET['postId']);
+    }
 
 
 //-------> Ajout de l'action pour tester la connexion
-        elseif ($_GET['action'] == 'connectTest'){
-            if (isset($_POST['login']) && isset($_POST['pass'])) {
-                $trueConnect = getConnection($_POST['login'], $_POST['pass']);
+    elseif ($_GET['action'] == 'connectTest'){
+        if (isset($_POST['login']) && isset($_POST['pass'])) {
+            $trueConnect = getConnection($_POST['login'], $_POST['pass']);
                 //echo $trueConnect;
-                if ($trueConnect === true) {
-                    connectionTest($_POST['login'], $_POST['pass']);
-                }
-                else {
-                    errorConnectionView();
-                }
+            if ($trueConnect === true) {
+                connectionTest($_POST['login'], $_POST['pass']);
             }
-        } 
-        elseif ($_GET['action'] == 'adPost'){
-            if (isset($_POST['title']) && isset($_POST['content'])) {
-                adPost($_POST['title'], $_POST['content']);
+            else {
+                errorConnectionView();
             }
         }
+    } 
+    elseif ($_GET['action'] == 'adPost'){
+        if (isset($_POST['title']) && isset($_POST['content'])) {
+            adPost($_POST['title'], $_POST['content']);
+        }
+    }
 
         //elseif ($_GET['action'] == 'testAdminView'){
             // if (isset($_POST['login']) && isset($_POST['pass'])) {
@@ -116,22 +128,22 @@ try { // On essaie de faire des choses
             // }
         //}
 
-        elseif ($_GET['action'] == 'modifiedPost') {
-            if (isset($_POST['title']) && isset($_POST['content'])) {
-                modifiedPost($_POST['title'], $_POST['content'], $_GET['postId']);
-                
-            }
+    elseif ($_GET['action'] == 'modifiedPost') {
+        if (isset($_POST['title']) && isset($_POST['content'])) {
+            modifiedPost($_POST['title'], $_POST['content'], $_GET['postId']);
+
         }
-        elseif ($_GET['action'] == 'deletedPost') {
-            if (isset($_GET['idp'])) {
-                deletedPost($_GET['idp']);
+    }
+    elseif ($_GET['action'] == 'deletedPost') {
+        if (isset($_GET['idp'])) {
+            deletedPost($_GET['idp']);
                 //echo $_GET['idp'];
-            }
         }
     }
-    else {
-        listPosts();
-    }
+}
+else {
+    listPosts();
+}
 }
 catch(Exception $e) { // S'il y a eu une erreur, alors...
 echo 'Erreur : ' . $e->getMessage();

@@ -10,7 +10,6 @@ function connectionTest($login, $pass) {
 		//$_SESSION['id'] = $result['id'];
 		$_SESSION['login'] = $login;
 		$pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-		$_SESSION['pass_hache'] = $pass_hache;
 		$_SESSION['pass'] = $_POST['pass'];
 		require('view/backend/trueConnectionView.php'); 
 	}

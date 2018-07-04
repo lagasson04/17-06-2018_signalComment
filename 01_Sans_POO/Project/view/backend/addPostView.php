@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<!-- <?php session_start(); ?> -->
 <?php $title = 'AddPost'; ?>
 <?php ob_start(); ?>
 <h2>Ajouter un chapitre</h2>
