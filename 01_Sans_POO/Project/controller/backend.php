@@ -17,7 +17,6 @@ function connectionTest($login, $pass) {
 }
 
 function showAdminPage() {
-	$posts = getPosts();
 	require('view/backend/adminViewPage.php');
 }
 
@@ -65,4 +64,9 @@ function deletedPost($postId) {
 	else {
 		header('Location: index.php?action=adminView');
 	}
+}
+
+function showModifPage() {
+	$posts = getPosts();
+	require('view/backend/showModifPage.php');
 }

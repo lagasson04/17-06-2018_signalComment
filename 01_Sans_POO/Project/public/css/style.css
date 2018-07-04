@@ -49,3 +49,11 @@ img.img-fluid {
 p#textzozor {
     text-align: center;
 }
+
+.separation {
+        background: transparent url(../img/bg1.jpg) no-repeat top center;
+        height: 8em;
+}
+.separation hr {
+        display: none;
+}

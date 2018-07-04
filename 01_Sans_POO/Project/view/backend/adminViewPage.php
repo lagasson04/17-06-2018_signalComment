@@ -1,40 +1,20 @@
 <?php $title = 'Admin'; ?>
 <?php ob_start(); ?>
-<hr />
-<hr />
+<h1>Tableau de bord</h1>
+<div class="separation"><hr></div>
 <form action="index.php?action=addPost" method="post">
 	<input class="btn btn-success col-lg-12" type="submit" value="Ajouter un chapitre">
 </form>
-<hr />
-<hr />
-<?php 
-while ($data = $posts->fetch())
-{
-$text = nl2br(htmlspecialchars($data['content']));
-?>
-	<table class="table table-striped"> 
-		<tr>
-			<th style="width:25%;">Titre</th>
-			<th style="width:25%;">Contenu</th>
-			<th style="width:25%;">Date</th>
-			<th style="width:25%;">Action</th>
-		</tr>
-		<tr>
-			<td><?= htmlspecialchars($data['title']) ?></td>
-			<td><?= shortenText($text, 20) ?><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"> ...Lire plus</a></td>
-			<td>le <?= $data['creation_date_fr'] ?></td>
-			<td class="row"><form action="index.php?action=modifPost&amp;postId=<?= $data['id'] ?>" method="post">
-				<input class="btn btn-primary" type="submit" value="Modifier">
-			</form>
-			<form action="index.php?action=deletedPost&amp;idp=<?= $data['id'] ?>" method="post">
-				<input class="btn btn-danger" type="submit" value="Supprimer">
-			</form></td>
-		</tr>
-	</table>
-<?php
-}
-$posts->closeCursor();
-?>
+<div class="separation"><hr></div>
+<form action="index.php?action=showModifPage" method="post">
+	<input class="btn btn-warning col-lg-12" type="submit" value="Modifier ou supprimer un chapitre">
+</form>
+<div class="separation"><hr></div>
+<form action="#" method="post">
+	<input class="btn btn-danger col-lg-12" type="submit" value="Modérer les commentaires">
+</form>
+<div class="separation"><hr></div>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

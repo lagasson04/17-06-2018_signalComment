@@ -88,7 +88,7 @@ try { // On essaie de faire des choses
         }
 
         elseif ($_GET['action'] == 'addPost'){
-           if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+         if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
             adPostView();
         }
         else {
@@ -138,6 +138,16 @@ try { // On essaie de faire des choses
         if (isset($_GET['idp'])) {
             deletedPost($_GET['idp']);
                 //echo $_GET['idp'];
+        }
+    }
+
+    elseif ($_GET['action'] == 'showModifPage'){
+        if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+            showModifPage();
+        }
+        else {
+            session_destroy();
+            zozor();
         }
     }
 }
