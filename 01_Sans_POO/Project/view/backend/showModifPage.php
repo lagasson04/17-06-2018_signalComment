@@ -1,5 +1,6 @@
 <?php $title = 'Admin'; ?>
 <?php ob_start(); ?>
+<h1>Liste des Chapitres</h1><br />
 <?php 
 while ($data = $posts->fetch())
 {
@@ -8,10 +9,10 @@ $text = nl2br(htmlspecialchars($data['content']));
 <div class="col-lg-12">
 	<table class="table table-striped"> 
 		<tr>
-			<th style="width:25%;">Titre</th>
-			<th style="width:25%;">Contenu</th>
-			<th style="width:25%;">Date</th>
-			<th style="width:25%;">Action</th>
+			<th>Titre</th>
+			<th>Contenu</th>
+			<th>Date</th>
+			<th>Action</th>
 		</tr>
 		<tr>
 			<td><?= htmlspecialchars($data['title']) ?></td>

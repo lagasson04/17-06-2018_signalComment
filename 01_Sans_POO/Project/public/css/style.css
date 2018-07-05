@@ -34,6 +34,7 @@ a
 
 body {
     padding-top: 5rem;
+    width: 100%;
 }
 
 a:hover
@@ -51,9 +52,34 @@ p#textzozor {
 }
 
 .separation {
-        background: transparent url(../img/bg1.jpg) no-repeat top center;
-        height: 8em;
+    background: transparent url(../img/bg1.jpg) no-repeat top center;
+    height: 8em;
 }
 .separation hr {
-        display: none;
+    display: none;
 }
+
+td {
+    text-align: center;
+}
+
+th {
+    width: 25%;
+    text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    tr, td {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    tr {
+        border: solid;
+    }
+
+    th {
+        display: none;
+    }
+} 
