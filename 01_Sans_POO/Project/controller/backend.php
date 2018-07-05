@@ -51,7 +51,7 @@ function modifiedPost($title, $content, $idp) {
 		die('Impossible de modifier le chapitre !');
 	}
 	else {
-		header('Location: index.php?action=adminView');
+		header('Location: index.php?action=showModifPage');
 	}
 }
 
@@ -62,7 +62,7 @@ function deletedPost($postId) {
 		die('Impossible de supprimer le chapitre !');
 	}
 	else {
-		header('Location: index.php?action=adminView');
+		header('Location: index.php?action=showModifPage');
 	}
 }
 
