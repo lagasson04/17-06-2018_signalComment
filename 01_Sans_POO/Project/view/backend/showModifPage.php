@@ -21,7 +21,7 @@ $text = nl2br(htmlspecialchars($data['content']));
 			<td class="row"><form action="index.php?action=modifPost&amp;postId=<?= $data['id'] ?>" method="post">
 				<input class="btn btn-primary" type="submit" value="Modifier">
 			</form>
-			<form action="index.php?action=deletedPost&amp;idp=<?= $data['id'] ?>" method="post">
+			<form class="col-lg-2" action="index.php?action=deletedPost&amp;idp=<?= $data['id'] ?>" method="post">
 				<input class="btn btn-danger" type="submit" value="Supprimer">
 			</form></td>
 		</tr>

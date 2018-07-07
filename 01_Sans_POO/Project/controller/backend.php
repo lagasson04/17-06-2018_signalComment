@@ -35,7 +35,7 @@ function adPost($title, $content) {
 		die('Impossible d\'ajouter le chapitre !');
 	}
 	else {
-		header('Location: index.php?action=adminView');
+		header('Location: index.php?action=showModifPage');
 	}
 }
 
@@ -70,3 +70,9 @@ function showModifPage() {
 	$posts = getPosts();
 	require('view/backend/showModifPage.php');
 }
+
+function moderComment () {
+	$comments = moderateComment(1);
+	require ('view/backend/commentAdminView.php');
+}
+

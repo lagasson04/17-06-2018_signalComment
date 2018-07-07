@@ -10,7 +10,7 @@
 	<input class="btn btn-warning col-lg-12" type="submit" value="Modifier ou supprimer un chapitre">
 </form>
 <div class="separation"><hr></div>
-<form action="#" method="post">
+<form action="index.php?action=moderComment" method="post">
 	<input class="btn btn-danger col-lg-12" type="submit" value="Modérer les commentaires">
 </form>
 <div class="separation"><hr></div>

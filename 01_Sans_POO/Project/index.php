@@ -150,6 +150,17 @@ try { // On essaie de faire des choses
             zozor();
         }
     }
+
+    elseif ($_GET['action'] == 'moderComment'){
+        if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+            moderComment();
+        }
+
+        else {
+            session_destroy();
+            zozor();
+        }
+    }
 }
 else {
     listPosts();

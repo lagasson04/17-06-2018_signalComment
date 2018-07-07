@@ -17,23 +17,23 @@ function getConnection($login, $pass){
 }
 function postPost($title, $content)
 {
-    $db = dbConnect();
-    $adPost = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES (?, ?, NOW())');
-    $affectedLines = $adPost->execute(array($title, $content));
-    return $affectedLines;
+	$db = dbConnect();
+	$adPost = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES (?, ?, NOW())');
+	$affectedLines = $adPost->execute(array($title, $content));
+	return $affectedLines;
 }
 
 function shortenText($text, $size) {
-    if (strlen($text) > $size)
-        return substr($text, 0, $size).' ';
-    return $text;
+	if (strlen($text) > $size)
+		return substr($text, 0, $size).' ';
+	return $text;
 }
 
 function modifyPost($title, $content, $postId)
 {
-    $db = dbConnect();
-    $req = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
-    $req->execute(array($title, $content, $postId)); 
+	$db = dbConnect();
+	$req = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
+	$req->execute(array($title, $content, $postId)); 
 }
 
 function deletePost($idp) {
@@ -43,3 +43,19 @@ function deletePost($idp) {
 	return $isDeleted;
 }
 
+function moderateComment ($reported) {
+	$db = dbConnect();
+	$comments = $db->prepare('SELECT id, post_id, author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh %imin %ss\') AS comment_date_fr FROM comments WHERE report = 1 ORDER BY comment_date DESC ');
+	$comments->execute(array($reported));
+
+	return $comments;
+}
+
+function moderatedComment($idc)
+{
+    $db = dbconnect();
+    $req = $db->prepare('UPDATE comments SET report = 0 WHERE id = ?');
+    $affectedLines = $req->execute(array($idc));
+
+    return $affectedLines;
+}
