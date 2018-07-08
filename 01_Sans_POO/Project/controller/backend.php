@@ -73,6 +73,17 @@ function showModifPage() {
 
 function moderComment () {
 	$comments = moderateComment(1);
-	require ('view/backend/commentAdminView.php');
+	require('view/backend/commentAdminView.php');
 }
 
+function modComment ($idc) {
+	moderatedComment($idc);
+	$comments = moderateComment(1);
+	require('view/backend/commentAdminView.php');
+}
+
+function delComment ($idc) {
+	deleteComment($idc);
+	$comments = moderateComment(1);
+	require('view/backend/commentAdminView.php');
+}

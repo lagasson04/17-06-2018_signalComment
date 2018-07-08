@@ -88,7 +88,7 @@ try { // On essaie de faire des choses
         }
 
         elseif ($_GET['action'] == 'addPost'){
-         if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+           if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
             adPostView();
         }
         else {
@@ -154,6 +154,28 @@ try { // On essaie de faire des choses
     elseif ($_GET['action'] == 'moderComment'){
         if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
             moderComment();
+        }
+
+        else {
+            session_destroy();
+            zozor();
+        }
+    }
+
+    elseif ($_GET['action'] == 'modComment'){
+        if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_GET['idc'])) {
+            modComment($_GET['idc']);
+        }
+
+        else {
+            session_destroy();
+            zozor();
+        }
+    }
+
+    elseif ($_GET['action'] == 'delComment'){
+        if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_GET['idc'])) {
+            delComment($_GET['idc']);
         }
 
         else {

@@ -13,12 +13,12 @@ while ($comment = $comments->fetch())
 		<p>
 			<div class="row">
 				<div class="col-lg-2">
-					<form action="#" method="post">
+					<form action="index.php?action=modComment&amp;idc=<?= $comment['id'] ?>" method="post">
 						<input class="btn btn-success" type="submit" value="Modérer">
 					</form>
 				</div> 
 				<div class="col-lg-offset-2 col-lg-2"> 
-					<form action="#" method="post">
+					<form action="index.php?action=delComment&amp;idc=<?= $comment['id'] ?>" method="post">
 						<input class="btn btn-danger" type="submit" value="Supprimer">
 					</form>
 				</div>

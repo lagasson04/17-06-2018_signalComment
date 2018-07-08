@@ -59,3 +59,10 @@ function moderatedComment($idc)
 
     return $affectedLines;
 }
+
+function deleteComment($idc) {
+	$db = dbConnect();
+	$req = $db->prepare('DELETE FROM comments WHERE id = ?');
+	$isDeleted = $req->execute(array($idc));
+	return $isDeleted;
+}
