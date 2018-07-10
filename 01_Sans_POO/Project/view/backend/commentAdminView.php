@@ -8,8 +8,8 @@ while ($comment = $comments->fetch())
 {
 	?>
 	<div class="comment">
-		<p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?>
-		<p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+		<p><strong><?= $comment['author'] ?></strong> le <?= $comment['comment_date_fr'] ?>
+		<p><?= nl2br($comment['comment']) ?></p>
 		<p>
 			<div class="row">
 				<div class="col-lg-2">

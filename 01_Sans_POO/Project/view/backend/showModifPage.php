@@ -4,7 +4,8 @@
 <?php 
 while ($data = $posts->fetch())
 {
-$text = nl2br(htmlspecialchars($data['content']));
+$text = $data['content'];
+$extract = substr($text,0,100);
 ?>
 <div class="col-lg-12">
 	<table class="table table-striped"> 
@@ -15,8 +16,8 @@ $text = nl2br(htmlspecialchars($data['content']));
 			<th>Action</th>
 		</tr>
 		<tr>
-			<td><?= htmlspecialchars($data['title']) ?></td>
-			<td><?= shortenText($text, 20) ?><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"> ...Lire plus</a></td>
+			<td><?= $data['title'] ?></td>
+			<td><?= $extract ?><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"> ...Lire plus</a></td>
 			<td>le <?= $data['creation_date_fr'] ?></td>
 			<td class="row"><form action="index.php?action=modifPost&amp;postId=<?= $data['id'] ?>" method="post">
 				<input class="btn btn-primary" type="submit" value="Modifier">

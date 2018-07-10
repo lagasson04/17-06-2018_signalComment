@@ -23,12 +23,6 @@ function postPost($title, $content)
 	return $affectedLines;
 }
 
-function shortenText($text, $size) {
-	if (strlen($text) > $size)
-		return substr($text, 0, $size).' ';
-	return $text;
-}
-
 function modifyPost($title, $content, $postId)
 {
 	$db = dbConnect();

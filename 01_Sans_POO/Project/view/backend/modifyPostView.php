@@ -6,14 +6,14 @@
 	<form action="index.php?action=modifiedPost&amp;postId=<?= $_GET['postId'] ?>" method="post">
 		<div>
 			<label for="title">Titre</label><br />
-			<input type="text" id="title" name="title" value="<?= htmlspecialchars($post['title']) ?>" />
+			<input type="text" id="title" name="title" value="<?= $post['title'] ?>" />
 		</div>
 		<div>
 			<label for="content">Contenu</label><br />
-			<textarea id="content" name="content" required="required"><?= htmlspecialchars($post['content']) ?></textarea>
+			<textarea id="mytextarea" name="content" required="required"><?= $post['content'] ?></textarea>
 		</div>
 		<div>
-			<input type="submit" value="Modifier" />
+			<input type="submit" value="Modifier" id="mytextarea" />
 		</div>
 	</form>
 </div>

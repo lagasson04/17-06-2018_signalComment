@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 	<script type="text/javascript" src="public/js/tinymce/tinymce.min.js"></script>
-<script type="text/javascript">
-	!-- 
-	tinyMCE.init({ 
-		mode : "textareas",
-		valid_elements : "em/i,strike,u,strong/b,div[align],br,#p[align],-ol[type|compact],-ul[type|compact],-li"
-	});
-//  -->
-</script>
+	<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -18,7 +10,11 @@
 <title><?= $title ?></title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="public/css/style.css" rel="stylesheet" /> 
-
+<script>
+	tinymce.init({
+		selector: '#mytextarea'
+	});
+</script>
 </head>
 
 <body>
