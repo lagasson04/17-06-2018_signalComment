@@ -2,19 +2,36 @@
 <html>
 <head>
 	<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="../../../../favicon.ico">
-<title><?= $title ?></title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link href="public/css/style.css" rel="stylesheet" /> 
-<script>
-	tinymce.init({
-		selector: '#mytextarea'
-	});
-</script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../../../../favicon.ico">
+	<title><?= $title ?></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="public/css/style.css" rel="stylesheet" /> 
+	<script>
+		tinymce.init({
+			selector: '#mytextarea',
+			theme: 'modern',
+			height: 150,
+			plugins: [
+			'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+			'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+			'save table contextmenu directionality emoticons template paste textcolor'
+			],
+			content_css: 'css/content.css',
+			toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+		});
+		function verification(formulaire){
+			tinyMCE.triggerSave(true, true);
+			
+			if(formulaire.mytextarea.value=="" || formulaire.mytextarea.value=="<br>")
+				alert('Veuillez insérer du contenu.');
+			else   
+				formulaire.submit();
+		}
+	</script>
 </head>
 
 <body>

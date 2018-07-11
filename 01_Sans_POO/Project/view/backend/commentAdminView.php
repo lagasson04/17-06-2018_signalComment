@@ -3,6 +3,7 @@
 
 <h1>Gestion des commentaires</h1><br/>
 <p>
+	
 <?php
 while ($comment = $comments->fetch())
 {

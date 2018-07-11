@@ -2,17 +2,17 @@
 <?php ob_start(); ?>
 <h1>Ajouter un chapitre</h1><br />
 <div class="chapitre">
-	<p><form action="index.php?action=adPost" method="post">
+	<p><form id="formulaire" action="index.php?action=adPost" method="post">
 		<div>
 			<label for="title">Titre</label><br />
 			<input type="text" id="title" name="title" required="required" />
 		</div><br />
 		<div>
 			<label for="content">Contenu</label><br />
-			<textarea id="mytextarea" name="content"></textarea>
+			<textarea required="required" id="mytextarea" name="content"></textarea>
 		</div><br />
 		<div>
-			<input id="validtextarea" type="submit" value="Ajouter" />
+			<input type="submit" value="Ajouter" onclick="javascript:verification(this.form);"/>
 		</div>
 	</form>
 </p>

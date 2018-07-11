@@ -60,3 +60,4 @@ function deleteComment($idc) {
 	$isDeleted = $req->execute(array($idc));
 	return $isDeleted;
 }
+
