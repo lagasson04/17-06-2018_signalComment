@@ -16,7 +16,7 @@ while ($data = $posts->fetch())
         </h3>
         
         <p>
-            <?= nl2br($data['content']) ?>
+            <?= nl2br(strip_tags($data['extractString'])) ?><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">...Lire plus</a>
             <br />
             <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
         </p>

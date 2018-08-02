@@ -29,6 +29,7 @@ while ($comment = $comments->fetch())
 </p>
 <?php 
 }
+$comments->closeCursor();
 ?>
 <?php $content = ob_get_clean(); ?>
 

@@ -10,10 +10,10 @@
 		</div>
 		<div>
 			<label for="content">Contenu</label><br />
-			<textarea id="mytextarea" name="content" required="required"><?= $post['content'] ?></textarea>
+			<textarea id="mytextarea" name="content"><?= $post['content'] ?></textarea>
 		</div>
 		<div>
-			<input type="submit" value="Modifier" id="mytextarea" />
+			<input type="submit" value="Modifier"/>
 		</div>
 	</form>
 </div>

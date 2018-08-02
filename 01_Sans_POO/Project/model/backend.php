@@ -13,8 +13,8 @@ function getConnection($login, $pass){
 	$isPasswordCorrect = password_verify($_POST['pass'], $result['pass']);
 	
 	return $isPasswordCorrect;
-	
 }
+
 function postPost($title, $content)
 {
 	$db = dbConnect();
@@ -36,7 +36,7 @@ function deletePost($idp) {
 	$isDeleted = $req->execute(array($idp));
 	return $isDeleted;
 }
-
+// la requête n'a pas besoin d'etre preparée et parametre inutile function getReportedComments
 function moderateComment ($reported) {
 	$db = dbConnect();
 	$comments = $db->prepare('SELECT id, post_id, author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh %imin %ss\') AS comment_date_fr FROM comments WHERE report = 1 ORDER BY comment_date DESC ');

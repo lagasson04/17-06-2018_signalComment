@@ -9,10 +9,10 @@
 		</div><br />
 		<div>
 			<label for="content">Contenu</label><br />
-			<textarea required="required" id="mytextarea" name="content"></textarea>
+			<textarea id="mytextarea" name="content"></textarea>
 		</div><br />
 		<div>
-			<input type="submit" value="Ajouter" onclick="javascript:verification(this.form);"/>
+			<input type="submit" value="Ajouter"/>
 		</div>
 	</form>
 </p>

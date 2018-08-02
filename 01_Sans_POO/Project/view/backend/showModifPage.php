@@ -4,8 +4,6 @@
 <?php 
 while ($data = $posts->fetch())
 {
-$text = $data['content'];
-$extract = substr($text,0,100);
 ?>
 <div class="col-lg-12">
 	<table class="table table-striped"> 
@@ -17,7 +15,7 @@ $extract = substr($text,0,100);
 		</tr>
 		<tr>
 			<td><?= $data['title'] ?></td>
-			<td><?= $extract ?><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"> ...Lire plus</a></td>
+			<td><?= strip_tags($data['extractString']) ?><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"> ...Lire plus</a></td>
 			<td>le <?= $data['creation_date_fr'] ?></td>
 			<td class="row"><form action="index.php?action=modifPost&amp;postId=<?= $data['id'] ?>" method="post">
 				<input class="btn btn-primary" type="submit" value="Modifier">

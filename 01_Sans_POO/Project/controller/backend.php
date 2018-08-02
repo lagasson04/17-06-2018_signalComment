@@ -1,17 +1,18 @@
 <?php
 function connectionTest($login, $pass) {
 	//si la connexion marche, on envoi vers l'espace d'administration. Sinon on renvoi vers la vue de connexion
-	$trueConnection = getConnection($_POST['login'], $_POST['pass']); 
-	if ($trueConnection === false) {
-		die('Impossible de vous connecter !');
+	$isPasswordCorrect = getConnection($_POST['login'], $_POST['pass']); 
+	if ($isPasswordCorrect === false) {
+		errorConnectionView(); 
 	}
 	else  {
+
 		session_start();
 		//$_SESSION['id'] = $result['id'];
 		$_SESSION['login'] = $login;
 		$pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 		$_SESSION['pass'] = $_POST['pass'];
-		require('view/backend/trueConnectionView.php'); 
+		require('view/backend/trueConnectionView.php');
 	}
 
 }
@@ -73,17 +74,24 @@ function showModifPage() {
 
 function moderComment () {
 	$comments = moderateComment(1);
-	require('view/backend/commentAdminView.php');
+	if ($comments === false) {
+		throw new Exception('Impossible de moderer le commentaire');
+	}
+	else {
+		require('view/backend/commentAdminView.php');
+	}
 }
-
+//Tester si la requête a fonctionnée (ligne 25 controller/frontend)
 function modComment ($idc) {
-	moderatedComment($idc);
+	$affectedLines = moderatedComment($idc);
+	//utiliser header comme ligne 29 controller/frontend
 	$comments = moderateComment(1);
 	require('view/backend/commentAdminView.php');
 }
 
 function delComment ($idc) {
 	deleteComment($idc);
+	//utiliser header comme ligne 29 controller/frontend
 	$comments = moderateComment(1);
 	require('view/backend/commentAdminView.php');
 }
